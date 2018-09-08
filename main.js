@@ -1,4 +1,4 @@
-var game = new SVGPathSegArcRel.Game(600, 400, Phaser.AUTO);
+var game = new Phaser.Game(600, 400, Phaser.AUTO);
 game.state.add('state0', pacman.state0);
 game.state.add('state1', pacman.state1);
 game.state.add('state2', pacman.state2);

@@ -7,7 +7,7 @@ pacman.state0.prototype = {
     game.stage.backgroundColor = '#DDDDDD';
     console.log('state0');
 
-    addChangeStateEventListeners()
+    addChangeStateEventListeners();
 
 },
     update: function(){}
