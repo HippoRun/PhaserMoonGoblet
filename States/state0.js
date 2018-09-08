@@ -8,6 +8,8 @@ pacman.state0.prototype = {
     console.log('state0');
 
     addChangeStateEventListeners();
+// this is to fit all screen sizes
+    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
 },
     update: function(){}
