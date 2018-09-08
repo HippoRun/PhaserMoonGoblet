@@ -1,7 +1,12 @@
-var pacman = {};
+// variable that represents center width and center height of sprite. if you want it on top of left of page make it 0, 0
+var pacman = {}, centerX = 1500 / 2, centerY = 1000 / 2;
+
 pacman.state0 = function(){};
 pacman.state0.prototype = {
-    preload: function(){},
+    preload: function(){
+// onces we have the images we will add it here
+        //game.load.image('vampire', 'assets/sprites/vampire.png');
+    },
     create: function(){
  // this is to change the background in the state. The color has to be a hex color. Hex color picker is a good site for it.
     game.stage.backgroundColor = '#DDDDDD';
@@ -11,6 +16,7 @@ pacman.state0.prototype = {
 // this is to fit all screen sizes
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
+    game.add.sprite(centerX, centerY, 'vampire')
 },
     update: function(){}
 };
