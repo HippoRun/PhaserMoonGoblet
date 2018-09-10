@@ -26,6 +26,12 @@ pacman.state0.prototype = {
         else if(game.input.keyboard.isDown(Phaser.keyboard.LEFT)){
             vampire.x -+ speed;
         }
+        if(game.input.keyboard.isDown(Phaser.keyboard.UP)){
+            vampire.y -= speed;
+        }
+        else if(game.input.keyboard.isDown(Phaser.keyboard.DOWN)){
+            vampire.y += speed;
+        }
     }
 };
 // starts a new state
