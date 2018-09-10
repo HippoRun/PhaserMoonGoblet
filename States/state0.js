@@ -1,5 +1,5 @@
 // variable that represents center width and center height of sprite. if you want it on top of left of page make it 0, 0
-var pacman = {}, centerX = 1500 / 2, centerY = 1000 / 2;
+var pacman = {}, centerX = 1500 / 2, centerY = 1000 / 2, vampire, speed = 4;
 
 pacman.state0 = function(){};
 pacman.state0.prototype = {
@@ -16,9 +16,17 @@ pacman.state0.prototype = {
 // this is to fit all screen sizes
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
-    game.add.sprite(centerX, centerY, 'vampire')
+    //vampire = game.add.sprite(centerX, centerY, 'vampire'); ******** NEED VAMP
+    vampire.anchor.setTo(0.5, 0.5);
 },
-    update: function(){}
+    update: function(){
+        if(game.input.keyboard.isDown(Phaser.keyboard.RIGHT)){
+            vampire.x += speed;
+        }
+        else if(game.input.keyboard.isDown(Phaser.keyboard.LEFT)){
+            vampire.x -+ speed;
+        }
+    }
 };
 // starts a new state
 function changeState(i, stateNum){
