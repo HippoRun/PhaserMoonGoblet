@@ -1,11 +1,11 @@
 // variable that represents center width and center height of sprite. if you want it on top of left of page make it 0, 0
-var pacman = {}, centerX = 1500 / 2, centerY = 1000 / 2, vampire, speed = 2;
+var pacman = {}, centerX = 1500 / 2, centerY = 1000 / 2, warewolf, speed = 2;
 
 pacman.state0 = function(){};
 pacman.state0.prototype = {
     preload: function(){
 // onces we have the images we will add it here
-    game.load.image('vampire', 'assets/spritesheets/vampiresheet.png', 240, 370);
+    game.load.image('warewolf', 'assets/spritesheets/warewolf.png', 240, 370);
     game.load.image('map', 'assets/backgrounds/map.png');
     },
     create: function(){
@@ -24,49 +24,49 @@ pacman.state0.prototype = {
 
 // this wont work until I add the images
     var map = game.add.sprite(0, 0, 'map1');
-    vampire = game.add.sprite(centerX, centerY, 'vampire'); 
-    vampire.anchor.setTo(0.5, 0.5);
-    vampire.scale.setTo(0.7, 0.7);
-    game.physics.enable(vampire);
-    vampire.body.collideWorldBounds = true;
+    warewolf = game.add.sprite(centerX, centerY, 'warewolf'); 
+    warewolf.anchor.setTo(0.5, 0.5);
+    warewolf.scale.setTo(0.7, 0.7);
+    game.physics.enable(warewolf);
+    warewolf.body.collideWorldBounds = true;
 // walking animation
-    vampire.animations.add('walk', [0, 1, 2, 3, 4]);
+    warewolf.animations.add('walk', [0, 1, 2, 3, 4]);
 
 // code bellow is to make the camera move with the character. We might not need or want this so it will be commented out.
-//    game.camera.follow(vampire);
+//    game.camera.follow(warewolf);
 //    game.camera.deadzone = new Phaser.Rectangle(ceneterX - 300, 0, 600, 1000);
 
 },
     update: function(){
         if(game.input.keyboard.isDown(Phaser.keyboard.RIGHT)){
-            vampire.scale.setTo(0.7, 0.7);
-            vampire.x += speed;
-            vampire.animations.play('walk', 14, true);
+            warewolf.scale.setTo(0.7, 0.7);
+            warewolf.x += speed;
+            warewolf.animations.play('walk', 14, true);
         }
         else if(game.input.keyboard.isDown(Phaser.keyboard.LEFT)){
-            vampire.scale.setTo(-0.7, 0.7);
-            vampire.x -+ speed;
-            vampire.animations.play('walk', 14, true);
+            warewolf.scale.setTo(-0.7, 0.7);
+            warewolf.x -+ speed;
+            warewolf.animations.play('walk', 14, true);
         }
         else{
-            vampire.animations.stop('walk');
-            vampire.frame = 0;
+            warewolf.animations.stop('walk');
+            warewolf.frame = 0;
         }
         if(game.input.keyboard.isDown(Phaser.keyboard.UP)){
-            vampire.y -= speed;
+            warewolf.y -= speed;
 // This is how we will set the bounds for the map need to add the y value after < to set bounds
-            // if(vampire.y < ){
-//             vampire.y = 395;
+            // if(warewolf.y < ){
+//             warewolf.y = 395;
             //}
         }
         else if(game.input.keyboard.isDown(Phaser.keyboard.DOWN)){
-            vampire.y += speed;
+            warewolf.y += speed;
         }
     }
 };
 // starts a new state
 function changeState(i, stateNum){
-    console.log(i);
+    console.log('state' + stateNum);
     game.state.start('state' + stateNum);
 
 }
